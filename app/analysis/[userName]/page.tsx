@@ -200,7 +200,7 @@ export default function DashboardPage() {
             <CardTitle>Analyze Instagram Profile</CardTitle>
           </CardHeader>
           <CardContent>
-            <form onSubmit={handleSubmit} className="flex gap-2">
+            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2">
               <div className="flex-1">
                 <Input
                   type="text"
@@ -209,7 +209,7 @@ export default function DashboardPage() {
                   onChange={(e) => setInputUsername(e.target.value)}
                 />
               </div>
-              <Button type="submit" disabled={!inputUsername.trim() || loading}>
+              <Button type="submit" disabled={!inputUsername.trim() || loading} className="w-full sm:w-auto">
                 {loading ? (
                   <Loader2 className="h-4 w-4 animate-spin mr-2" />
                 ) : null}
@@ -232,17 +232,19 @@ export default function DashboardPage() {
     <DashboardShell>
 
       <Tabs defaultValue="overview" className="space-y-4">
-        <TabsList>
-          <TabsTrigger value="overview">Overview</TabsTrigger>
-          <TabsTrigger value="engagement">Engagement</TabsTrigger>
-          <TabsTrigger value="audience">Audience</TabsTrigger>
-          <TabsTrigger value="content">Content</TabsTrigger>
-          <TabsTrigger value="risk">Risk Analysis</TabsTrigger>
-        </TabsList>
+        <div className="overflow-x-auto pb-2">
+          <TabsList className="w-full sm:w-auto">
+            <TabsTrigger value="overview" className="text-xs sm:text-sm">Overview</TabsTrigger>
+            <TabsTrigger value="engagement" className="text-xs sm:text-sm">Engagement</TabsTrigger>
+            <TabsTrigger value="audience" className="text-xs sm:text-sm">Audience</TabsTrigger>
+            <TabsTrigger value="content" className="text-xs sm:text-sm">Content</TabsTrigger>
+            <TabsTrigger value="risk" className="text-xs sm:text-sm">Risk Analysis</TabsTrigger>
+          </TabsList>
+        </div>
 
         <TabsContent value="overview" className="space-y-4">
           <ProfileOverview data={analysisData} />
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">
@@ -324,7 +326,7 @@ export default function DashboardPage() {
               </CardContent>
             </Card>
           </div>
-          <div className="grid gap-4 md:grid-cols-2">
+          <div className="grid gap-4 grid-cols-1 md:grid-cols-2">
             <Card className="col-span-1">
               <CardHeader>
                 <CardTitle>Category Classification</CardTitle>

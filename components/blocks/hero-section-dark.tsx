@@ -342,7 +342,7 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
                       </button>
 
                       {error && (
-                        <div className="text-green-500 text-sm mt-2">Scrapping Data from the Instagram this may take 2 mins <br/> Check above examples for quick results</div>
+                        <div className="text-red-500 text-sm mt-2">Backend Crashed Try Running Locally OR <br/> Check above examples for quick results</div>
                       )}
                       {message && !error && (
                         <div className="text-green-400 text-sm mt-2">
@@ -354,7 +354,7 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
                 </form>
               </div>
 
-              {bottomImage && !isLoading && (
+              {/* {bottomImage && !isLoading && (
                 <div className="mt-32 mx-10 relative">
                   <img
                     src={bottomImage.dark}
@@ -362,7 +362,7 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
                     alt="Dashboard preview"
                   />
                 </div>
-              )}
+              )} */}
             </div>
           </section>
         </div>
