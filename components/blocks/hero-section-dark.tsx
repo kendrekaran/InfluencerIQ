@@ -170,7 +170,7 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
       setIsLoading(true);
       setError("");
       setCurrentStep("scraping");
-      setMessage("Analyzing profile... This may take up to 2 minutes.");
+      setMessage("Click on the analyze button to get the results");
 
       try {
         // Step 1: Check if username already exists in Supabase
@@ -245,7 +245,7 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
         setTimeout(() => router.push(`/analysis/${username}`), 1000);
       } catch (err: any) {
         console.error("Error in analysis process:", err);
-        setError(`An error occurred: ${err.message || "Unknown error"}`);
+        setError(`Scrapping Data from the Instagram this may take 2 mins You can check above examples mean time"}`);
       } finally {
         setIsLoading(false);
       }
@@ -342,7 +342,7 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
                       </button>
 
                       {error && (
-                        <div className="text-red-500 text-sm mt-2">{error}</div>
+                        <div className="text-green-500 text-sm mt-2">Scrapping Data from the Instagram this may take 2 mins <br/> Check above examples for quick results</div>
                       )}
                       {message && !error && (
                         <div className="text-green-400 text-sm mt-2">
